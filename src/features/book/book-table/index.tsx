@@ -1,0 +1,1 @@
+export { BookTableWithoutPagination } from './ui'

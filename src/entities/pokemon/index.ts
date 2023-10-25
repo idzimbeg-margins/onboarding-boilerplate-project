@@ -1,0 +1,1 @@
+export { useGetPokemonsQuery } from './api'
