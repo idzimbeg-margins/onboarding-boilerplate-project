@@ -26,6 +26,8 @@ export const StyledButton = styled.button<ButtonProps>`
 		`padding: ${size === 'small' ? '0.25rem 0.5rem' : '0.5rem 1rem'};`}
 
 	${({ size }) => `font-size: ${size === 'small' ? '0.75rem' : '1rem'};`}
+	
+	${({ size }) => `font-size: ${size === 'large' ? '1.5rem' : '1rem'};`}
 
 	${({ color, variant, theme }) =>
 		variant === 'secondary' &&
