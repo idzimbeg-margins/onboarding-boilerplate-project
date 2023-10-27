@@ -19,7 +19,7 @@ interface ButtonProps {
 	/**
 	 * Button size
 	 */
-	size?: 'normal' | 'small'
+	size?: 'normal' | 'small' | 'large'
 	/**
 	 * Button type
 	 */
