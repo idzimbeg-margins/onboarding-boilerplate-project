@@ -8,7 +8,6 @@ interface ButtonProps {
 }
 
 export const StyledButton = styled.button<ButtonProps>`
-	cursor: pointer;
 	display: inline-flex;
 	border: none;
 	align-items: center;
