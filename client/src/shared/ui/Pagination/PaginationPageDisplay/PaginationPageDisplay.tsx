@@ -1,9 +1,3 @@
-import {
-	StyledPaginationDisplayTitle,
-	StyledPaginationPageCount,
-	StyledPaginationPageDisplay
-} from './styles'
-
 interface PaginationPageCountDisplayProps {
 	table: any
 	title: string
@@ -17,11 +11,11 @@ export const PaginationPageDisplay = ({
 	const pageCount = table && table.getPageCount()
 
 	return (
-		<StyledPaginationPageDisplay>
-			<StyledPaginationDisplayTitle>{title}</StyledPaginationDisplayTitle>
-			<StyledPaginationPageCount>
+		<span className='mb-2 flex flex-row justify-between text-sm'>
+			<h4 className='font-medium'>{title}</h4>
+			<div className='font-bold md:ml-1'>
 				{currentPage} of {pageCount}
-			</StyledPaginationPageCount>
-		</StyledPaginationPageDisplay>
+			</div>
+		</span>
 	)
 }

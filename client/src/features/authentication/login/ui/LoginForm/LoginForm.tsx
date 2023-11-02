@@ -1,32 +1,53 @@
 import { useLoginMutation } from '@/entities/session'
-import { Button } from '@/shared/ui'
-import { useRef } from 'react'
-import styled from 'styled-components'
-export const LoginForm = () => {
-	const usernameRef = useRef<HTMLInputElement>(null)
-	const [login, { isLoading, isError, error }] = useLoginMutation()
-	const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
-		e.preventDefault()
-		if (!usernameRef.current) return
+import { Button, FormWrapper } from '@/shared/ui'
+import { TextField } from '@/shared/ui/Form/TextField'
+import { Controller, useForm } from 'react-hook-form'
 
-		const username = usernameRef.current.value
-		if (username !== 'admin' && username !== 'user') return
-
-		login({ username })
-	}
-	return (
-		<form onSubmit={handleSubmit}>
-			<input placeholder="'admin' or 'user'" ref={usernameRef} />
-			<FormButtonWrapper>
-				<Button type='submit' label='Login' />
-				{isLoading && <span>Loading...</span>}
-			</FormButtonWrapper>
-		</form>
-	)
+type FormInputs = {
+	name: string
 }
 
-const FormButtonWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	margin-top: 1rem;
-`
+export const LoginForm = () => {
+	const [login, { isLoading, isError, error }] = useLoginMutation()
+	const defaultValues = {
+		name: ''
+	}
+
+	const { getValues, watch, control } = useForm<FormInputs>({
+		defaultValues,
+		mode: 'onChange'
+	})
+	const userName = watch('name')
+
+	const handleLogin = () => {
+		if (!userName) return
+
+		const username = getValues('name')
+		if (username !== 'admin' && username !== 'user') return
+		console.log('username', username)
+
+		login({
+			username
+		})
+	}
+
+	return (
+		<FormWrapper onSubmit={handleLogin}>
+			<Controller
+				name='name'
+				control={control}
+				render={({ field: { value, onChange } }) => (
+					<TextField
+						value={value}
+						className='mb-4 w-full'
+						onChange={onChange}
+						label="'admin' or 'user'"
+					/>
+				)}
+			/>
+			<Button type='submit' isLoading={isLoading} className='w-full'>
+				Submit
+			</Button>
+		</FormWrapper>
+	)
+}

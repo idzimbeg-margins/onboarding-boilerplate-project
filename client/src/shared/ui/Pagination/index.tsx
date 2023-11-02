@@ -1,7 +1,6 @@
 import { PaginationPageNavigation } from './PaginationNavigation/PaginationPageNavigation'
 import { PaginationPageActions } from './PaginationPageActions/PaginationPageActions'
 import { PaginationPageDisplay } from './PaginationPageDisplay/PaginationPageDisplay'
-import { StyledPaginationWrapper } from './styles'
 
 interface PaginationProps {
 	table: any
@@ -17,10 +16,10 @@ export const Pagination = ({
 	showPaginationPageActions = true
 }: PaginationProps) => {
 	return (
-		<StyledPaginationWrapper>
+		<div className='flex flex-col justify-center align-middle'>
 			{showPageDisplay && <PaginationPageDisplay title='Page' table={table} />}
 			{showPaginationNavigation && <PaginationPageNavigation table={table} />}
 			{showPaginationPageActions && <PaginationPageActions table={table} />}
-		</StyledPaginationWrapper>
+		</div>
 	)
 }

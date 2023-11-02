@@ -8,15 +8,11 @@ export const PaginationPageSelector = ({
 	title
 }: PaginationPageSelectorProps) => {
 	return (
-		<span style={{ marginRight: '0.5rem' }}>
+		<span className='mr-2'>
 			{title}
 			<input
 				type='number'
-				style={{
-					width: '100px',
-					textAlign: 'center',
-					marginLeft: '0.5rem'
-				}}
+				className='text-center md:ml-2'
 				defaultValue={table.getState().pagination.pageIndex + 1}
 				onChange={(e) => {
 					const page = e.target.value ? Number(e.target.value) - 1 : 0

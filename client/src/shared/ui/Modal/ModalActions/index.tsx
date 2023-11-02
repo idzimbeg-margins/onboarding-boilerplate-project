@@ -1,7 +1,6 @@
+import { Button } from '@/shared/ui/Button'
+import { DialogClose } from '@radix-ui/themes'
 import React, { Ref } from 'react'
-import { LinkWrapper } from '../../LinkWrapper'
-import { DialogActions, DialogCloseButton } from '../ModalContent/styles'
-import { Button } from '../styles'
 
 export const ModalActions = React.forwardRef(
 	(
@@ -14,16 +13,18 @@ export const ModalActions = React.forwardRef(
 		ref: Ref<HTMLDivElement>
 	) => {
 		return (
-			<DialogActions ref={ref}>
+			<div className='mt-4 flex text-base' ref={ref}>
 				{hasLinkToPage && (
-					<LinkWrapper to={`${id}`} table={true}>
+					<Button to={`${id}`} variant='text' size='sm'>
 						{linkTitle}
-					</LinkWrapper>
+					</Button>
 				)}
-				<DialogCloseButton>
-					<Button>{closeButtonTitle}</Button>
-				</DialogCloseButton>
-			</DialogActions>
+				<DialogClose>
+					<Button variant='text' size='sm'>
+						{closeButtonTitle}
+					</Button>
+				</DialogClose>
+			</div>
 		)
 	}
 )

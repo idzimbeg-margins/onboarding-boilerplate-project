@@ -1,10 +1,9 @@
-import { BookTableWithoutPagination } from '@/features/book/book-table/ui'
-import { BookTableContainer } from './styles'
+import { BookTableWithoutPagination } from '@/features/book/book-table'
 
 export const BookTable = () => {
 	return (
-		<BookTableContainer>
+		<div className='m-auto w-full max-w-[800px] px-6 py-0'>
 			<BookTableWithoutPagination />
-		</BookTableContainer>
+		</div>
 	)
 }

@@ -17,6 +17,7 @@ export const BookTableWithoutPagination = () => {
 				header: 'Book Name',
 				accessorKey: 'name',
 				accessorFn: (row) => row.name,
+				className: 'text-center',
 				cell: (props: any) => {
 					return (
 						<Modal

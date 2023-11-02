@@ -1,53 +1,26 @@
-import { StyledButton } from '@/shared/ui/Button/styles'
-import { StyledPaginationPageNavigation } from '@/shared/ui/Pagination/PaginationNavigation/styles'
-import { StyledPaginationPageSelector } from '@/shared/ui/Pagination/PaginationPageActions/styles'
+import { Button } from '@/shared/ui'
 import { PaginationPageDisplay } from '@/shared/ui/Pagination/PaginationPageDisplay'
-import { StyledPaginationWrapper } from '@/shared/ui/Pagination/styles'
 
 export const MockPagination = () => {
 	return (
-		<StyledPaginationWrapper>
+		<div>
 			<PaginationPageDisplay table={null} title='Page' />
-			<StyledPaginationPageNavigation>
-				<StyledButton
-					style={{ marginBottom: '1rem' }}
-					size='small'
-					color='primary'
-					variant='secondary'
-					onClick={() => {}}
-				>
+			<div>
+				<Button size='sm' color='primary' onClick={() => {}}>
 					{'<<'}
-				</StyledButton>
-				<StyledButton
-					style={{ marginBottom: '1rem' }}
-					size='small'
-					color='primary'
-					variant='secondary'
-					onClick={() => {}}
-				>
+				</Button>
+				<Button size='sm' color='primary' onClick={() => {}}>
 					{'<'}
-				</StyledButton>
-				<StyledButton
-					style={{ marginBottom: '1rem' }}
-					size='small'
-					color='primary'
-					variant='secondary'
-					onClick={() => {}}
-				>
+				</Button>
+				<Button size='sm' color='primary' onClick={() => {}}>
 					{'>'}
-				</StyledButton>
-				<StyledButton
-					style={{ marginBottom: '1rem' }}
-					size='small'
-					color='primary'
-					variant='secondary'
-					onClick={() => {}}
-				>
+				</Button>
+				<Button size='sm' color='primary' onClick={() => {}}>
 					{'>>'}
-				</StyledButton>
-			</StyledPaginationPageNavigation>
+				</Button>
+			</div>
 
-			<StyledPaginationPageSelector>
+			<span>
 				<span>
 					Go to page:
 					<input type='number' defaultValue={1} onChange={() => {}} />
@@ -60,7 +33,7 @@ export const MockPagination = () => {
 						</option>
 					))}
 				</select>
-			</StyledPaginationPageSelector>
-		</StyledPaginationWrapper>
+			</span>
+		</div>
 	)
 }

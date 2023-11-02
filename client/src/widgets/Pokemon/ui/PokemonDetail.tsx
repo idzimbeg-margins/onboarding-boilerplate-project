@@ -1,6 +1,6 @@
 import { PokeCard } from '@/entities/pokemon/ui'
 import { Container } from '@radix-ui/themes'
-import { PokeDetailsPageProps } from '../model/types'
+import { PokeDetailsPageProps } from '../model'
 
 export const PokemonDetail = ({
 	name,

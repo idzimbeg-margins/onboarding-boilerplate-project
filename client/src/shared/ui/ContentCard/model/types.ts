@@ -8,3 +8,7 @@ export interface ContentCardProps {
 	stats?: PokeSProps[]
 	types?: any
 }
+export interface BadgeProps {
+	name: string
+	value?: number
+}

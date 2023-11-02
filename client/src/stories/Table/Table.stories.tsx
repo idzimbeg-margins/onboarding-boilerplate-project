@@ -1,10 +1,5 @@
 // Import necessary modules and components
-import {
-	TableBody,
-	TableCell,
-	TableRow
-} from '@/shared/ui/Table/TableBody/styles'
-import { TableHeader } from '@/shared/ui/Table/TableHeader/styles'
+
 import {
 	TableWrapper,
 	TableWrapperWithNavigation
@@ -49,7 +44,7 @@ export const Primary: StoryProps = {
 				<Search value={''} onChange={() => {}} placeholder='Search...' />
 			)}
 			<TableWrapper>
-				<TableHeader>
+				<thead>
 					{args.headers.map((header: any) => (
 						<tr key={header.id}>
 							{header.headers.map((header: any) => (
@@ -57,16 +52,16 @@ export const Primary: StoryProps = {
 							))}
 						</tr>
 					))}
-				</TableHeader>
-				<TableBody>
+				</thead>
+				<tbody>
 					{args.rows.map((row: any) => (
-						<TableRow key={row.id}>
+						<tr key={row.id}>
 							{row.map((cell: any) => (
-								<TableCell key={cell.id}>{row}</TableCell>
+								<td key={cell.id}>{row}</td>
 							))}
-						</TableRow>
+						</tr>
 					))}
-				</TableBody>
+				</tbody>
 			</TableWrapper>
 			{args.showNavigation && <MockPagination />}
 		</TableWrapperWithNavigation>

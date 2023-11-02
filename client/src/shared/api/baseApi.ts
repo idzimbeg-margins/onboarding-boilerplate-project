@@ -19,6 +19,7 @@ export const basePokeApi = createApi({
 	}),
 	reducerPath: 'pokemon',
 	tagTypes: ['Pokemon'],
+
 	endpoints: () => ({})
 })
 

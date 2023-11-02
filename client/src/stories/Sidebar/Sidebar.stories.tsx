@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { SidebarContent, SidebarWrapper } from '@/shared/ui/Sidebar/styles'
 import { Sidebar } from '../../shared'
 import { StyledLink, StyledLinkWrapper } from './sidebar'
 
@@ -16,8 +15,8 @@ type Story = StoryObj<typeof Sidebar>
 
 export const Primary: Story = {
 	render: () => (
-		<SidebarWrapper>
-			<SidebarContent>
+		<div>
+			<div>
 				<StyledLinkWrapper>
 					<StyledLink>Your Books List</StyledLink>
 				</StyledLinkWrapper>
@@ -27,7 +26,7 @@ export const Primary: Story = {
 				<StyledLinkWrapper>
 					<StyledLink>Your Books List</StyledLink>
 				</StyledLinkWrapper>
-			</SidebarContent>
-		</SidebarWrapper>
+			</div>
+		</div>
 	)
 }

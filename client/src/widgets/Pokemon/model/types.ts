@@ -4,4 +4,6 @@ export interface PokeDetailsPageProps {
 	url?: string
 	stats: any
 	types?: any
+	species?: any
+	sprites?: any
 }

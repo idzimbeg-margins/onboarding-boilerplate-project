@@ -1,23 +1,23 @@
-import type { Meta, StoryObj } from '@storybook/react'
+// import type { Meta, StoryObj } from '@storybook/react'
 
-import { FormWrapper, Input } from '../../shared'
+// import { FormWrapper } from '../../shared'
 
-const meta = {
-	title: 'Example/Input',
-	component: Input,
-	parameters: {
-		layout: 'centered'
-	},
-	tags: ['autodocs']
-} satisfies Meta<typeof Input>
+// const meta = {
+// 	title: 'Example/Input',
+// 	component: input,
+// 	parameters: {
+// 		layout: 'centered'
+// 	},
+// 	tags: ['autodocs']
+// } satisfies Meta<typeof input>
 
-export default meta
-type Story = StoryObj<typeof Input>
+// export default meta
+// type Story = StoryObj<typeof input>
 
-export const Primary: Story = {
-	render: (args) => (
-		<FormWrapper onSubmit={() => console.log('submitted')}>
-			<Input {...args} />
-		</FormWrapper>
-	)
-}
+// export const Primary: Story = {
+// 	render: (args) => (
+// 		<FormWrapper onSubmit={() => console.log('submitted')}>
+// 			<input {...args} />
+// 		</FormWrapper>
+// 	)
+// }

@@ -8,6 +8,7 @@ export const TableBody = styled.tbody`
 export const TableRow = styled.tr`
 	padding: 0.4rem;
 	height: 2.2rem;
+	cursor: pointer;
 `
 
 export const TableCell = styled.td`

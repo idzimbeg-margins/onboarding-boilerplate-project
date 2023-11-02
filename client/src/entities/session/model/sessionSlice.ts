@@ -1,5 +1,3 @@
-import { bookApi } from '@/entities/book/api/getBook'
-import { pokemonApi } from '@/entities/pokemon/api/getPokemons'
 import { userApi } from '@/entities/user'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { sessionApi } from '../api/sessionApi'
@@ -22,42 +20,6 @@ const sessionSlice = createSlice({
 	},
 	extraReducers: (build) => {
 		build.addMatcher(sessionApi.endpoints.login.matchFulfilled, (state) => {
-			state.isAuthenticated = true
-		})
-		build.addMatcher(
-			sessionApi.endpoints.getPokemons.matchFulfilled,
-			(state) => {
-				state.isAuthenticated = true
-			}
-		)
-		build.addMatcher(
-			pokemonApi.endpoints.getPokemons.matchFulfilled,
-			(state) => {
-				state.isAuthenticated = true
-			}
-		)
-		build.addMatcher(
-			sessionApi.endpoints.getPokemon.matchFulfilled,
-			(state) => {
-				state.isAuthenticated = true
-			}
-		)
-		build.addMatcher(
-			pokemonApi.endpoints.getPokemon.matchFulfilled,
-			(state) => {
-				state.isAuthenticated = true
-			}
-		)
-		build.addMatcher(sessionApi.endpoints.getBooks.matchFulfilled, (state) => {
-			state.isAuthenticated = true
-		})
-		build.addMatcher(sessionApi.endpoints.getBook.matchFulfilled, (state) => {
-			state.isAuthenticated = true
-		})
-		build.addMatcher(bookApi.endpoints.getBooks.matchFulfilled, (state) => {
-			state.isAuthenticated = true
-		})
-		build.addMatcher(bookApi.endpoints.getBook.matchFulfilled, (state) => {
 			state.isAuthenticated = true
 		})
 		build.addMatcher(userApi.endpoints.me.matchFulfilled, (state) => {

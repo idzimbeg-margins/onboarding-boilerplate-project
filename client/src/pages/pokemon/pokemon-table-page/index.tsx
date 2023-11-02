@@ -1,4 +1,4 @@
-import { PokemonTable } from '@/widgets/'
+import { PokemonTable } from '@/widgets'
 
 export const PokePage = () => {
 	return <PokemonTable />

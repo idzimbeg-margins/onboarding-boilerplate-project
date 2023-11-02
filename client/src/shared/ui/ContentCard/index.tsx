@@ -1,12 +1,4 @@
-import {
-	CardDetailsContainer,
-	CardImage,
-	CardImageContainer,
-	CardTitle
-} from '@/pages/pokemon/poke-details-page/styles'
-import { Card } from '@radix-ui/themes'
-import styled from 'styled-components'
-import { ContentCardProps } from './model/types'
+import { BadgeProps, ContentCardProps } from './model'
 
 export const ContentCard = ({
 	name,
@@ -17,65 +9,47 @@ export const ContentCard = ({
 	types
 }: ContentCardProps) => {
 	return (
-		<Card>
-			<CardDetailsContainer>
-				<CardTitle>{name}</CardTitle>
-			</CardDetailsContainer>
+		<div className='bg-text-base flex h-full w-full flex-col justify-between rounded-md p-4'>
+			<div className='flex h-full w-full flex-col'>
+				<h2 className='text-text-main text-center text-lg font-bold'>
+					{name.toUpperCase()}
+				</h2>
+			</div>
 			{hasImage && (
-				<CardImageContainer>
-					<CardImage src={url} alt={name} id={id} />
-				</CardImageContainer>
+				<div className='flex h-40 w-full items-center justify-center'>
+					<img
+						className='mb-2 h-full w-full cursor-pointer object-contain transition-all hover:scale-105'
+						src={url}
+						alt={name}
+						id={id}
+					/>
+				</div>
 			)}
 			{types && (
-				<StatsWrapper>
+				<div className='m-auto grid grid-cols-3 items-center justify-center p-4'>
 					{types.map((type: any, index: number) => (
 						<Badge name={type} key={index} />
 					))}
-				</StatsWrapper>
+				</div>
 			)}
 			{
-				<StatsWrapper>
+				<div className='m-auto grid grid-cols-3 items-center justify-center gap-4 p-4'>
 					{stats?.map((stat) => (
 						<div key={stat.name}>
 							<Badge name={stat.name} value={stat.value} />
 						</div>
 					))}
-				</StatsWrapper>
+				</div>
 			}
-		</Card>
+		</div>
 	)
 }
-interface BadgeProps {
-	name: string
-	value?: number
-}
-const StatsWrapper = styled.div`
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	margin: 0 auto;
-	padding: 1rem;
-	justify-content: center;
-	align-items: center;
-`
 
 const Badge = ({ name, value }: BadgeProps) => {
 	return (
-		<StyledBadge>
+		<div className='flex min-h-[50px] min-w-[100px] flex-col items-center justify-center rounded-xl text-center shadow-[1px_8px_10px_-3px_black]'>
 			<div>{name.toUpperCase()}</div>
 			<div>{value}</div>
-		</StyledBadge>
+		</div>
 	)
 }
-
-const StyledBadge = styled.div`
-	border-radius: 1rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	box-shadow: 1px 8px 10px -3px black;
-	min-width: 100px;
-	min-height: 50px;
-	margin: 5px;
-`

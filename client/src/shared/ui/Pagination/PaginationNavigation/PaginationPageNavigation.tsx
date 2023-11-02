@@ -1,5 +1,4 @@
 import { PaginationPageNavigationButton } from './PaginationPageNavigationButton'
-import { StyledPaginationPageNavigation } from './styles'
 
 interface PaginationPageSelectorsDisplayProps {
 	table: any
@@ -9,7 +8,7 @@ export const PaginationPageNavigation = ({
 	table
 }: PaginationPageSelectorsDisplayProps) => {
 	return (
-		<StyledPaginationPageNavigation>
+		<div className='mt-2 flex flex-row items-center justify-center align-middle'>
 			<PaginationPageNavigationButton
 				table={table}
 				icon='<<'
@@ -34,6 +33,6 @@ export const PaginationPageNavigation = ({
 				onClick={() => table.setPageIndex(table.getPageCount() - 1)}
 				disabled={!table.getCanNextPage()}
 			/>
-		</StyledPaginationPageNavigation>
+		</div>
 	)
 }

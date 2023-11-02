@@ -1,6 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { ModalContent } from '../ModalContent'
-import { DialogOverlay } from '../styles'
 
 export const ModalPortal = ({
 	children,
@@ -11,7 +10,7 @@ export const ModalPortal = ({
 }: ModalContentProps) => {
 	return (
 		<Dialog.Portal>
-			<DialogOverlay />
+			<div className='fixed inset-0 animate-[overlayShow_150ms_cubic-bezier(0.16_1,_0.3_1)] bg-[var(--black-a9)]' />
 			<ModalContent
 				id={id}
 				linkTitle={linkTitle}

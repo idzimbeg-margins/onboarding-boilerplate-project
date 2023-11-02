@@ -17,12 +17,8 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
 	args: {
-		label: 'Button',
 		type: 'button',
-		variant: 'primary',
-		size: 'normal',
 		color: 'primary',
-		style: {},
 		onClick: () => {}
 	},
 	render: (args) => (

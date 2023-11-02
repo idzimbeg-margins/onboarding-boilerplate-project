@@ -1,4 +1,4 @@
-import { StyledButton } from '../../Button/styles'
+import { Button } from '@/shared/ui'
 
 interface PaginationButtonProps {
 	table: any
@@ -14,15 +14,8 @@ export const PaginationPageNavigationButton = ({
 	disabled
 }: PaginationButtonProps) => {
 	return (
-		<StyledButton
-			style={{ marginBottom: '1rem', marginRight: '0.5rem' }}
-			size='small'
-			color='primary'
-			variant='secondary'
-			onClick={onClick}
-			disabled={disabled}
-		>
+		<Button size='sm' color='primary' onClick={onClick} disabled={disabled}>
 			{icon}
-		</StyledButton>
+		</Button>
 	)
 }

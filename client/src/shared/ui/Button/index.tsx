@@ -1,76 +1,94 @@
-// ** Third Party Imports
-import * as Form from '@radix-ui/react-form'
-import { StyledButton } from './styles'
+import { cn } from '@/shared/lib/utils/cn'
+import { forwardRef, type ForwardedRef } from 'react'
+import { Link } from 'react-router-dom'
+import { getBaseClasses, getSizeClasses, getVariantClasses } from './styles'
+import { type ButtonColor, type ButtonSize, type ButtonVariant } from './types'
 
-// ** Styled Components
-
-interface ButtonProps {
-	/**
-	 * Custom inline styling
-	 */
-	style?: React.CSSProperties | undefined
-	/**
-	 * Button type:
-	 * If the button type is submit,
-	 * then the button must be wrapped with a form component,
-	 * and the form component must have na onSubmit handler.
-	 */
-	type?: 'button' | 'submit'
-	/**
-	 * Button size
-	 */
-	size?: 'normal' | 'small' | 'large'
-	/**
-	 * Button type
-	 */
-	variant?: 'primary' | 'secondary' | 'text'
-	/**
-	 * Button contents
-	 */
-	label: string
-	/**
-	 * Button color
-	 */
-	color?: 'primary' | 'secondary' | 'success' | 'error' | 'warning'
-	/**
-	 * Optional click handler
-	 */
-	onClick?: () => void
+interface Props {
+	variant?: ButtonVariant
+	size?: ButtonSize
+	color?: ButtonColor
+	children?: React.ReactNode
+	type?: 'button' | 'submit' | 'reset'
+	to?: string
+	href?: string
+	target?: '_blank' | '_self' | '_parent' | '_top'
+	onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>
+	disabled?: boolean
+	isLoading?: boolean
+	className?: string
 }
 
-export const Button = ({
-	size = 'normal',
-	type = 'button',
-	style,
-	label,
-	color = 'primary',
-	variant = 'primary',
-	onClick
-}: ButtonProps) => {
-	return (
-		<>
-			{type === 'submit' ? (
-				<Form.Submit asChild>
-					<StyledButton
-						style={style}
-						size={size}
-						color={color}
-						variant={variant}
-					>
-						{label}
-					</StyledButton>
-				</Form.Submit>
-			) : (
-				<StyledButton
-					style={style}
-					size={size}
-					color={color}
-					variant={variant}
-					onClick={onClick}
+/**
+ * @param to - If provided, renders as react-router-dom Link component
+ * @param href - If provided, renders as anchor tag
+ * @param variant - Default: "contained"
+ * @param size - Default: "md"
+ * @param color - Default: "primary"
+ * @param isLoading - If true, renders loading spinner
+ */
+export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
+	(
+		{
+			variant = 'contained',
+			size = 'md',
+			color = 'primary',
+			children,
+			type = 'button',
+			to,
+			href,
+			target = '_blank',
+			onClick,
+			isLoading,
+			disabled,
+			className,
+			...commonProps
+		},
+		ref
+	) => {
+		const classes = cn(
+			getBaseClasses(),
+			getSizeClasses(size),
+			getVariantClasses(variant, color)
+		)
+
+		if (to)
+			return (
+				<Link
+					to={to}
+					className={cn(classes, className)}
+					ref={ref as ForwardedRef<HTMLAnchorElement>}
+					{...commonProps}
 				>
-					{label}
-				</StyledButton>
-			)}
-		</>
-	)
-}
+					{children}
+				</Link>
+			)
+
+		if (href)
+			return (
+				<a
+					href={href}
+					target={target}
+					className={cn(classes, className)}
+					ref={ref as ForwardedRef<HTMLAnchorElement>}
+					{...commonProps}
+				>
+					{children}
+				</a>
+			)
+
+		return (
+			<button
+				/* eslint-disable-next-line react/button-has-type */
+				type={type}
+				onClick={onClick}
+				className={cn(classes, className)}
+				ref={ref as ForwardedRef<HTMLButtonElement>}
+				disabled={disabled || isLoading}
+				{...commonProps}
+			>
+				{isLoading ? 'Loading...' : children}
+			</button>
+		)
+	}
+)

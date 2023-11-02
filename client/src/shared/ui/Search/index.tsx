@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { StyledTableFilterInput } from './styles'
 
 interface Props
 	extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
@@ -31,10 +30,11 @@ export const Search = ({
 	}, [value, onChange, debounceTime])
 
 	return (
-		<StyledTableFilterInput
+		<input
 			{...props}
 			value={value}
 			onChange={(e) => setValue(e.target.value)}
+			className=' border-primary-main active:border-primary-active focus:border-primary-active rounded-md p-2'
 		/>
 	)
 }

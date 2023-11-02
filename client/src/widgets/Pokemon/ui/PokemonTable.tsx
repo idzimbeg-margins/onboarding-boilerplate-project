@@ -1,10 +1,9 @@
-import { PokemonTableWithModal } from '@/features/pokemon/pokemon-table/ui'
-import { PokemonTableContainer } from './styles'
+import { PokemonTableWithModal } from '@/features/pokemon/pokemon-table'
 
 export const PokemonTable = () => {
 	return (
-		<PokemonTableContainer>
+		<div className='m-auto w-full max-w-[800px] px-6 py-0'>
 			<PokemonTableWithModal />
-		</PokemonTableContainer>
+		</div>
 	)
 }

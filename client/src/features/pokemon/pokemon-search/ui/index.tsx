@@ -1,6 +1,6 @@
+import { TextField } from '@/shared/ui/Form/TextField'
 import { useEffect, useState } from 'react'
-import { StyledTableFilterInput } from './styles'
-import { PokemonSearchProps } from '../model/types'
+import { PokemonSearchProps } from '../model'
 
 export const PokemonSearch = ({
 	value: initialValue,
@@ -25,7 +25,7 @@ export const PokemonSearch = ({
 	}, [value, onChange, debounceTime])
 
 	return (
-		<StyledTableFilterInput
+		<TextField
 			{...props}
 			value={value}
 			onChange={(e) => setValue(e.target.value)}

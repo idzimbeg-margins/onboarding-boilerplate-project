@@ -1,6 +1,6 @@
 import { useGetPokemonQuery } from '@/entities/pokemon/api/getPokemons'
 import { PokeSProps } from '@/entities/pokemon/model/types'
-import { ContentCardProps } from '@/shared/ui/ContentCard/model/types'
+import { ContentCardProps } from '@/shared/ui/ContentCard/model'
 import { PokemonDetail } from '@/widgets/Pokemon/ui/PokemonDetail'
 import { useParams } from 'react-router-dom'
 

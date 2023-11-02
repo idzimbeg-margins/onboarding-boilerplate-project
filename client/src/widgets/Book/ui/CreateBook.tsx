@@ -1,6 +1,5 @@
 import { Authorization } from '@/entities/authorization'
 import { CreateBookForm } from '@/features/book/create-book'
-import { BookFormContainer } from './styles'
 
 export const CreateBook = () => {
 	return (
@@ -8,9 +7,9 @@ export const CreateBook = () => {
 			allowedRoles={['admin']}
 			forbiddenFallback={<p>Only admin can add books</p>}
 		>
-			<BookFormContainer>
+			<div className='m-auto w-full max-w-[800px] px-6 py-0'>
 				<CreateBookForm />
-			</BookFormContainer>
+			</div>
 		</Authorization>
 	)
 }

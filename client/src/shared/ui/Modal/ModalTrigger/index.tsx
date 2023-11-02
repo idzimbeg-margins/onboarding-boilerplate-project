@@ -1,8 +1,10 @@
+import { Button } from '@/shared/ui'
 import * as Dialog from '@radix-ui/react-dialog'
-import { Button } from '../styles'
 
 export const ModalTrigger = ({ name }: Pick<ModalProps, 'name'>) => (
 	<Dialog.Trigger asChild>
-		<Button>{name}</Button>
+		<Button variant='text' size='sm' className='w-full'>
+			{name}
+		</Button>
 	</Dialog.Trigger>
 )

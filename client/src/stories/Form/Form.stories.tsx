@@ -1,10 +1,5 @@
 import { CreateBookForm } from '@/features/book/create-book'
-import {
-	StyledFormWrapper,
-	Typography
-} from '@/features/book/create-book/ui/styles'
-import { Button, FormWrapper, Input } from '@/shared'
-import { Heading } from '@radix-ui/themes'
+import { Button, FormWrapper } from '@/shared'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
@@ -27,14 +22,14 @@ export const Primary: Story = {
 				alert('Submitted!')
 			}}
 		>
-			<StyledFormWrapper>
-				<Heading>Create Book Entry</Heading>
-				<Typography>Book</Typography>
+			<div>
+				<h3>Create Book Entry</h3>
+				<p>Book</p>
 
-				<Input name='name' label='Name' fullWidth />
+				<input name='name'>Name</input>
 
-				<Button type='submit' label='submit' />
-			</StyledFormWrapper>
+				<Button type='submit'></Button>
+			</div>
 		</FormWrapper>
 	)
 }

@@ -1,4 +1,4 @@
-import { filterFns } from '@/utils'
+import { filterFns } from '@/shared'
 import type { ColumnDef, FilterFn, SortingState } from '@tanstack/react-table'
 import {
 	getCoreRowModel,
@@ -13,7 +13,6 @@ import { Pagination } from '../Pagination'
 import { Search } from '../Search'
 import { TbBody } from './TableBody'
 import { TbHeader } from './TableHeader'
-import { TableWrapper, TableWrapperWithNavigation } from './styles'
 
 interface ReactTableProps<T extends object> {
 	data: T[]
@@ -51,7 +50,7 @@ export const Table = <T extends object>({
 	})
 
 	return (
-		<TableWrapperWithNavigation>
+		<div className='flex w-full flex-col'>
 			{showGlobalFilter && (
 				<Search
 					value={globalFilter ?? ''}
@@ -59,11 +58,11 @@ export const Table = <T extends object>({
 					placeholder='Search...'
 				/>
 			)}
-			<TableWrapper>
+			<table className='my-2 overflow-x-hidden rounded-sm p-2 shadow-[1px_8px_10px_-3px_black]'>
 				<TbHeader table={table} />
 				<TbBody table={table} />
-			</TableWrapper>
+			</table>
 			{showNavigation && <Pagination table={table} />}
-		</TableWrapperWithNavigation>
+		</div>
 	)
 }

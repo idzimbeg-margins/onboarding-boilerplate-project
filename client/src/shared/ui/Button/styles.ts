@@ -1,56 +1,62 @@
-// ** Third Party Imports
-import styled from 'styled-components'
+import { ButtonColor, type ButtonSize, type ButtonVariant } from './types'
 
-interface ButtonProps {
-	size: string
-	color: string
-	variant: string
+// Variant styles
+/** Styles for contained variant */
+const getContainedClasses = (color: ButtonColor): string => {
+	if (color === 'error')
+		return 'text-text-base bg-error-main hover:bg-error-hover active:bg-error-active disabled:bg-disabled-main'
+
+	// Default color: primary
+	return 'text-text-base bg-primary-main hover:bg-primary-hover active:bg-primary-active disabled:bg-disabled-main'
 }
 
-export const StyledButton = styled.button<ButtonProps>`
-	display: inline-flex;
-	border: none;
-	align-items: center;
-	border-radius: 0.5rem;
-	justify-content: center;
+/** Styles for outlined variant */
+const getOutlinedClasses = (color: ButtonColor): string => {
+	if (color === 'error')
+		return 'border-2 border-error-main hover:border-err0r-hover active:border-error-active text-text-error hover:text-error-hover active:text-error-active disabled:border-disabled-main disabled:text-disabled-main'
 
-	font-style: normal;
-	font-weight: 600;
+	// Default color: primary
+	return 'border-2 border-primary-main hover:border-primary-active active:border-primary-active text-primary-main hover:text-primary-hover active:text-primary-active disabled:border-disabled-main disabled:text-disabled-main'
+}
 
-	&:hover {
-	}
+/** Styles for text variant */
+const getTextClasses = (color: ButtonColor): string => {
+	if (color === 'error')
+		return 'text-error-main hover:text-error-hover active:text-error-active disabled:text-disabled-main'
 
-	${({ size }) =>
-		`padding: ${size === 'small' ? '0.25rem 0.5rem' : '0.5rem 1rem'};`}
+	// Default color: primary
+	return 'text-primary-main hover:text-primary-hover active:text-primary-active disabled:text-disabled-main'
+}
 
-	${({ size }) => `font-size: ${size === 'small' ? '0.75rem' : '1rem'};`}
-	
-	${({ size }) => `font-size: ${size === 'large' ? '1.5rem' : '1rem'};`}
+/** Styles for link variant */
+const getLinkClasses = (): string => {
+	return 'p-0 font-normal text-sm hover:underline'
+}
 
-	${({ color, variant, theme }) =>
-		variant === 'secondary' &&
-		`
-      color: ${theme.pallette[color].main}; 
-      background: #fff;
-      border: 1px solid ${theme.pallette[color].main};
+// Main style getters
+/** Base styles for the button */
+export const getBaseClasses = (): string => 'rounded transition font-semibold'
 
-      &:hover {
-        color: #fff;
-      }
-  `}
+/** Size styles controller */
+export const getSizeClasses = (size: ButtonSize): string => {
+	if (size === 'sm') return 'py-1 px-3 text-sm'
 
-	${({ color, variant, theme }) =>
-		variant === 'primary' &&
-		`
-    color: #fff;
-    background: ${theme.pallette[color].main};
-  `}
+	if (size === 'lg') return 'py-3 px-7 text-lg'
 
-	${({ color, variant, theme }) =>
-		variant === 'text' &&
-		`
-    color: ${theme.pallette[color].main}; 
-    background: #fff;
-    border: none;
-  `}
-`
+	// Default: md
+	return 'py-2 px-5'
+}
+
+/** Variant styles controller */
+export const getVariantClasses = (
+	variant: ButtonVariant,
+	color: ButtonColor
+): string => {
+	if (variant === 'outlined') return getOutlinedClasses(color)
+
+	if (variant === 'text') return getTextClasses(color)
+
+	if (variant === 'link') return getLinkClasses()
+
+	return getContainedClasses(color) // Default variant: primary
+}

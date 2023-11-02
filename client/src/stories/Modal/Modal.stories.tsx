@@ -6,7 +6,6 @@ import {
 	CardImageContainer,
 	CardTitle
 } from '@/pages/pokemon/poke-details-page/styles'
-import { DialogContent, DialogOverlay } from '@/shared/ui/Modal/styles'
 import * as Dialog from '@radix-ui/react-dialog'
 import { Card, DialogClose } from '@radix-ui/themes'
 import { Button, Modal } from '../../shared'
@@ -31,11 +30,13 @@ export const Primary: Story = {
 	render: (args) => (
 		<Dialog.Root>
 			<Dialog.Trigger style={{ appearance: 'none', border: 'none' }}>
-				<Button label={args.name} variant='text' size='small' />
+				<Button variant='text' size='sm'>
+					{args.name}
+				</Button>
 			</Dialog.Trigger>
 			<Dialog.Portal>
-				<DialogOverlay />
-				<DialogContent>
+				<div />
+				<div>
 					<Card>
 						<CardImageContainer>
 							<CardImage
@@ -55,10 +56,10 @@ export const Primary: Story = {
 						}}
 					>
 						<DialogClose>
-							<Button label='Close' />
+							<Button>Close</Button>
 						</DialogClose>
 					</div>
-				</DialogContent>
+				</div>
 			</Dialog.Portal>
 		</Dialog.Root>
 	)
