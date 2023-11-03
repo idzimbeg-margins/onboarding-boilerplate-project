@@ -1,5 +1,5 @@
 export interface PokeDetailsPageProps {
-	id: string
+	id: number
 	name: string
 	url?: string
 	stats: any

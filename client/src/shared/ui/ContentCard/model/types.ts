@@ -3,7 +3,7 @@ import { PokeSProps } from '@/entities/pokemon/model/types'
 export interface ContentCardProps {
 	name: string
 	url?: string
-	id?: string
+	id?: number
 	hasImage?: boolean
 	stats?: PokeSProps[]
 	types?: any

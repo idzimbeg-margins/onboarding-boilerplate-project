@@ -1,11 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import {
-	CardDetailsContainer,
-	CardImage,
-	CardImageContainer,
-	CardTitle
-} from '@/pages/pokemon/poke-details-page/styles'
 import * as Dialog from '@radix-ui/react-dialog'
 import { Card, DialogClose } from '@radix-ui/themes'
 import { Button, Modal } from '../../shared'
@@ -38,15 +32,18 @@ export const Primary: Story = {
 				<div />
 				<div>
 					<Card>
-						<CardImageContainer>
-							<CardImage
+						<div className='full flex h-40 items-center justify-center'>
+							<img
+								className='mb-2 h-full w-full object-contain transition-transform hover:scale-105'
 								src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'
 								alt={args.name}
 							/>
-						</CardImageContainer>
-						<CardDetailsContainer>
-							<CardTitle>{args.name}</CardTitle>
-						</CardDetailsContainer>
+						</div>
+						<div className='g-full flex w-full flex-col'>
+							<h1 className='font-lg text-primary-main text-center font-semibold'>
+								{args.name}
+							</h1>
+						</div>
 					</Card>
 					<div
 						style={{

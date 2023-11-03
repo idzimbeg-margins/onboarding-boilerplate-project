@@ -39,7 +39,7 @@ export const Sidebar = () => {
 
 const MobileNavigationMenu = () => {
 	return (
-		<div className='fixed z-50 m-auto flex max-h-10 w-full rounded-md shadow-[1px_8px_10px_-3px_black] backdrop:blur-md md:hidden'>
+		<div className='shadow-border-shadow fixed z-50 m-auto flex max-h-10 w-full rounded-md backdrop:blur-md md:hidden'>
 			<NavigationMenu.Root className='m-auto mb-4 mt-2 flex font-medium md:hidden'>
 				<NavigationMenu.List className='flex max-h-8 items-center'>
 					<Button

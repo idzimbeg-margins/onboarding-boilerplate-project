@@ -34,7 +34,13 @@ export default {
 			}
 		},
 		animation: {
-			'spin-slow': 'spin 3s linear infinite'
+			'spin-slow': 'spin 3s linear infinite',
+			'content-show': 'pulse 250ms cubic-bezier(0.16, 1, 0.3, 1) 5'
+		},
+		boxShadow: {
+			'drop-shadow':
+				'hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px',
+			'border-shadow': '1px 8px 10px -3px black'
 		}
 	},
 	plugins: []

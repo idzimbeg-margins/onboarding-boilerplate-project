@@ -23,7 +23,7 @@ export const FilterButton = ({ header }: FilterButtonPropsExtended) => {
 
 export const TbHeader = ({ table }: TbHeaderProps) => {
 	return (
-		<thead className='text-text-main min-h-4 flex w-full items-center justify-center rounded-sm p-0 opacity-80 shadow-[0_0_0.5rem_rgba(0,_0,_0,_0.5)]'>
+		<thead className='text-text-main min-h-4 shadow-border-shadow flex w-full items-center justify-center rounded-sm p-0 opacity-80'>
 			{table.getHeaderGroups().map((headerGroup: any) => (
 				<tr className='h-8 cursor-pointer p-2' key={headerGroup.id}>
 					{headerGroup.headers.map((header: any) => (

@@ -11,17 +11,15 @@ export const ContentCard = ({
 	return (
 		<div className='bg-text-base flex h-full w-full flex-col justify-between rounded-md p-4'>
 			<div className='flex h-full w-full flex-col'>
-				<h2 className='text-text-main text-center text-lg font-bold'>
-					{name.toUpperCase()}
-				</h2>
+				<h2 className='text-text-main text-center text-lg font-bold'>{name}</h2>
 			</div>
 			{hasImage && (
 				<div className='flex h-40 w-full items-center justify-center'>
 					<img
-						className='mb-2 h-full w-full cursor-pointer object-contain transition-all hover:scale-105'
+						className='animate-content-show mb-2 h-full w-full cursor-pointer object-contain transition-all'
 						src={url}
 						alt={name}
-						id={id}
+						id={id?.toString()}
 					/>
 				</div>
 			)}
@@ -47,8 +45,8 @@ export const ContentCard = ({
 
 const Badge = ({ name, value }: BadgeProps) => {
 	return (
-		<div className='flex min-h-[50px] min-w-[100px] flex-col items-center justify-center rounded-xl text-center shadow-[1px_8px_10px_-3px_black]'>
-			<div>{name.toUpperCase()}</div>
+		<div className='shadow-border-shadow flex min-h-[50px] min-w-[100px] flex-col items-center justify-center rounded-xl text-center'>
+			<div>{name}</div>
 			<div>{value}</div>
 		</div>
 	)

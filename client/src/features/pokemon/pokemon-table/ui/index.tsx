@@ -22,6 +22,11 @@ export const PokemonTableWithModal = () => {
 								<PokemonModal
 									id={props.row.original.id}
 									name={props.row.original.name}
+									species={props.row.original.species}
+									url={props.row.original.url}
+									types={props.row.original.types}
+									results={props.row.original.results}
+									sprites={props.row.original.sprites}
 								/>
 							}
 						/>

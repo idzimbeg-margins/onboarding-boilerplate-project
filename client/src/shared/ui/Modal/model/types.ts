@@ -5,7 +5,7 @@ interface ModalProps {
 }
 interface ModalContentProps {
 	children: React.ReactNode
-	id: string
+	id: number | string
 	linkTitle?: string
 	closeButtonTitle: string
 	hasLinkToPage?: boolean

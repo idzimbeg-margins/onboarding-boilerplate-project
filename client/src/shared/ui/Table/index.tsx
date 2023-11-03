@@ -58,7 +58,7 @@ export const Table = <T extends object>({
 					placeholder='Search...'
 				/>
 			)}
-			<table className='my-2 overflow-x-hidden rounded-sm p-2 shadow-[1px_8px_10px_-3px_black]'>
+			<table className='shadow-border-shadow my-2 overflow-x-hidden rounded-sm p-2'>
 				<TbHeader table={table} />
 				<TbBody table={table} />
 			</table>

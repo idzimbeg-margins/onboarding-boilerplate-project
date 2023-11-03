@@ -1,9 +1,3 @@
-// Import necessary modules and components
-
-import {
-	TableWrapper,
-	TableWrapperWithNavigation
-} from '@/shared/ui/Table/styles'
 import type { StoryObj } from '@storybook/react'
 import { Search, Table } from '../../shared'
 import { MockPagination } from './MockPagination'
@@ -39,11 +33,11 @@ export const Primary: StoryProps = {
 		showNavigation: true
 	},
 	render: (args) => (
-		<TableWrapperWithNavigation>
+		<div className='flex flex-col'>
 			{args.showGlobalFilter && (
 				<Search value={''} onChange={() => {}} placeholder='Search...' />
 			)}
-			<TableWrapper>
+			<table className='shadow-border-shadow my-2 flex w-full overflow-x-hidden rounded-md p-2'>
 				<thead>
 					{args.headers.map((header: any) => (
 						<tr key={header.id}>
@@ -53,17 +47,19 @@ export const Primary: StoryProps = {
 						</tr>
 					))}
 				</thead>
-				<tbody>
+				<tbody className='bg-text-base text-text-main'>
 					{args.rows.map((row: any) => (
-						<tr key={row.id}>
+						<tr className='h-8 cursor-pointer p-2' key={row.id}>
 							{row.map((cell: any) => (
-								<td key={cell.id}>{row}</td>
+								<td className='border-b-grey-300 mb-2 p-2' key={cell.id}>
+									{row}
+								</td>
 							))}
 						</tr>
 					))}
 				</tbody>
-			</TableWrapper>
+			</table>
 			{args.showNavigation && <MockPagination />}
-		</TableWrapperWithNavigation>
+		</div>
 	)
 }

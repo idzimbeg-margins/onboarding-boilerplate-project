@@ -25,7 +25,7 @@ export const CreateBookForm = () => {
 
 	return (
 		<FormWrapper onSubmit={handleSubmit(handleCreate)}>
-			<div className='mb-4 flex flex-col items-center justify-center rounded-md p-8 shadow-[1px_8px_10px_-3px_black]'>
+			<div className='shadow-border-shadow mb-4 flex flex-col items-center justify-center rounded-md p-8'>
 				<h1 className='mb-4 text-lg'>Create Book Entry</h1>
 				<Controller
 					name='name'

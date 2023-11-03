@@ -11,9 +11,9 @@ export const PokeDetailsPage = () => {
 		return <div>Pokemon ID not found in URL.</div>
 	}
 
-	const idToFetch = String(Number(pokemonId) + 1)
+	const idToFetch = +pokemonId
 
-	const { data: poke, isLoading } = useGetPokemonQuery(idToFetch)
+	const { data: poke, isLoading } = useGetPokemonQuery(idToFetch.toString())
 	if (isLoading) {
 		return <div>Loading...</div>
 	}
@@ -42,7 +42,7 @@ export const PokeDetailsPage = () => {
 		url: pokemonUrlImage,
 		stats: pokemonStats,
 		types: pokemonTypes
-	} = pokeDataToPokeDetails(poke)
+	} = poke
 
 	return (
 		<PokemonDetail

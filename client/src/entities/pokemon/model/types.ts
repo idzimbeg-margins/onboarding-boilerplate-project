@@ -1,41 +1,26 @@
 export interface PokemonProps {
 	results: {
 		name: string
-		sprites: {
-			front_default: string
-		}
+		sprites: PSpritesProps
 	}[]
 }
 export interface PokemonDetailProps {
 	id: number
 	name: string
 	stats: PokeSProps[]
-	species: {
-		url: string
-	}
-	sprites: {
-		front_default: string
-	}
+	species: PSpeciesProps
+	sprites: PSpritesProps
 }
 
 export interface PProps {
-	id: string
+	id: number
 	name: string
 	url?: string
 	stats?: PokeSProps[]
-	types?: any
-	species: {
-		url: string
-	}
-	sprites: {
-		front_default: string
-	}
-	results: {
-		name: string
-		sprites: {
-			front_default: string
-		}
-	}[]
+	types?: PTypeProps[]
+	species?: PSpeciesProps
+	sprites?: PSpritesProps
+	results?: PResultsProps[]
 }
 
 export type PokemonModalProps = Pick<
@@ -50,4 +35,21 @@ export type PDetailProps = Pick<
 export interface PokeSProps {
 	name: string
 	value: number
+}
+export interface PSpritesProps {
+	front_default: string
+}
+export interface PResultsProps {
+	name: string
+	sprites: {
+		front_default: string
+	}
+}
+export interface PSpeciesProps {
+	url: string
+}
+export interface PTypeProps {
+	type: {
+		name: string
+	}
 }

@@ -4,4 +4,4 @@ export type {
 	PokemonProps
 } from './types'
 
-export { dataToPokemonData } from './transformations'
+export { resDataToPokeResults } from './transformations'

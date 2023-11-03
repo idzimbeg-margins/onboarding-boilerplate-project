@@ -10,7 +10,7 @@ export const ModalPortal = ({
 }: ModalContentProps) => {
 	return (
 		<Dialog.Portal>
-			<div className='fixed inset-0 animate-[overlayShow_150ms_cubic-bezier(0.16_1,_0.3_1)] bg-[var(--black-a9)]' />
+			<div className='fixed inset-0' />
 			<ModalContent
 				id={id}
 				linkTitle={linkTitle}
